@@ -66,6 +66,12 @@
     <artifactId>jcommander</artifactId>
     <version>1.72</version>
 </dependency>
+<!-- 增加freemarker框架jar包 -->
+<dependency>
+    <groupId>org.freemarker</groupId>
+    <artifactId>freemarker</artifactId>
+    <version>2.3.28</version>
+</dependency>
 
   </dependencies>
   
