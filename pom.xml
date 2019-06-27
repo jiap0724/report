@@ -12,7 +12,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    
+    <allure.version>2.10.0</allure.version><!-- allure版本 -->
+   <aspectj.version>1.8.10</aspectj.version>
      <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
@@ -24,7 +25,18 @@
       <version>4.0</version>
       <scope>test</scope>
     </dependency>
-    
+    <!-- 添加allure插件 -->
+    <dependency>
+		<groupId>io.qameta.allure</groupId>
+		<artifactId>allure-testng</artifactId>
+		<version>2.6.0</version>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-java-commons</artifactId>
+            <version>2.10.0</version>
+        </dependency>
       <!--引入extentreports相关包-->
 <dependency>
     <groupId>com.aventstack</groupId>
@@ -106,5 +118,19 @@
 
        </plugins>   
   </build> 
+  <!-- 这里加了相关allure用到的  出自：https://www.cnblogs.com/longronglang/p/10816871.html -->
+   <reporting>
+        <excludeDefaults>true</excludeDefaults>
+        <plugins>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.10.0</version>
+                <configuration>
+                    <reportVersion>${allure.version}</reportVersion>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 
 </project>
