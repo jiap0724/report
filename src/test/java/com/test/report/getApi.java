@@ -11,12 +11,18 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.testng.annotations.Test;
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Stories;
+import io.qameta.allure.Story;
+
 /**
  * 一个简单的get请求接口测试
  * 
  * @author jiapeng
  *
  */
+@Feature("接口测试")
+@Stories(value = { @Story(value = "get接口") })
 public class getApi {
   @Test
 	public void demo1() throws ClientProtocolException, IOException {

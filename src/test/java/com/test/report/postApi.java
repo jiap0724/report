@@ -15,12 +15,18 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.testng.annotations.Test;
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Stories;
+import io.qameta.allure.Story;
+
 /**
  * 这是post接口测试
  * 
  * @author jiapeng
  *
  */
+@Feature("接口测试")
+@Stories(value = { @Story(value = "post接口") })
 public class postApi {
   @Test
 	public void demo2() throws ClientProtocolException, IOException {
