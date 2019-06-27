@@ -3,14 +3,14 @@
 
     <test name="这些是测试模块">
         <classes>
-             <class name="com.test.report.TestMethodsDemo">
+             <!-- <class name="com.test.report.TestMethodsDemo">
                 <methods>
                     <include name="test1"/>
                     <include name="test2"/>
                     <include name="test3"/>
                     <include name="logDemo"/>
                 </methods>
-            </class> 
+            </class>  -->
             
     		<class name="com.test.report.getApi">
     			<methods>
@@ -20,7 +20,7 @@
     		
     		<class name="com.test.report.postApi">
     			<methods>
-    				<include name="demo1"/>
+    				<include name="demo2"/>
     			</methods>
     		</class>
     	
