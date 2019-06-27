@@ -18,6 +18,16 @@
         </classes>
 
     </test>
+    
+    <test>
+    	<classes>
+    		<class name="com.test.report.getApi">
+    			<methods>
+    				<include name="demo1"></include>
+    			</methods>
+    		</class>
+    	</classes>
+    </test>
 
     <listeners>
         <listener class-name="com.vimalselvam.testng.listener.ExtentTestNgFormatter"/>
