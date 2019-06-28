@@ -29,6 +29,12 @@
     				<include name="RunCase"/>
     			</methods>
     		</class>
+    		
+    		<class name="com.test.apitestcase.LoginCase">
+    			<methods>
+    				<include name="RunCase"/>
+    			</methods>
+    		</class>
     	
         </classes>
 
