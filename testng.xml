@@ -23,6 +23,12 @@
     				<include name="demo2"/>
     			</methods>
     		</class>
+    		
+    		<class name="com.test.apitestcase.TestCase">
+    			<methods>
+    				<include name="RunCase"/>
+    			</methods>
+    		</class>
     	
         </classes>
 
