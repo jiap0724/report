@@ -68,6 +68,14 @@
     <version>1.1.4</version>
     <scope>test</scope>
 </dependency>
+<!-- 添加slf4j的jar包 解决 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".-->
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-log4j12</artifactId>
+    <version>1.7.25</version>
+    <scope>test</scope>
+</dependency>
+
 
 <dependency>
             <groupId>com.google.inject</groupId>
@@ -89,6 +97,7 @@
 </dependency> -->
 
 <!-- 生成和解析Excel -->
+<!-- 解决读取jar包错误 https://blog.csdn.net/weixin_33805992/article/details/86026182 -->
 <dependency>
     <groupId>org.apache.poi</groupId>
     <artifactId>poi-ooxml</artifactId>
