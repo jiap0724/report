@@ -19,12 +19,19 @@ import com.test.api.util.CompareMap;
 import com.test.api.util.DataToMap;
 import com.test.api.util.HttpRequest;
 
+import junit.framework.Assert;
 import net.sf.json.JSONObject;
 
+/**
+ * Excel操作类
+ * 
+ * @author jiapeng
+ *
+ */
 public class DataExcel {
-	XSSFWorkbook workbook;
-	String requestResult;
-	XSSFSheet sheet;
+	private static XSSFWorkbook workbook;
+	private static String requestResult;
+	private static XSSFSheet sheet;
 
 	@SuppressWarnings("deprecation")
 	public void chooseFile(String path, String tester) {
@@ -83,12 +90,15 @@ public class DataExcel {
 					XSSFCellStyle cellStyle = workbook.createCellStyle();
 					cellStyle.setFillBackgroundColor(HSSFColor.RED.index);
 					memoNameCell.setCellStyle(cellStyle);
+					// 增加断言 如果备注中的预期值和实际值不一致测试用例就不通过
+					Assert.assertEquals(expectedValue, actualValueCell);
 				}
 			} catch (Exception e) {
 				// 如果返回的结果不能转换成JSON格式，那么说明这个接口是有问题的
 				System.out.println("返回值有误");
 				memoNameCell.setCellValue("返回值有误");
 				actualValueCell.setCellValue(requestResult);
+				// Assert.assertEquals(expectedValue, actualValueCell);
 			}
 
 		}
@@ -186,4 +196,71 @@ public class DataExcel {
 		return CompareMap.compare(expectedValue, m);
 
 	}
+
+	// /*
+	// * 读取指定的excel中的某个指定的sheet
+	// */
+	// public static String[][] getExpectationData(String file, String
+	// sheetName) {
+	// try {
+	// FileInputStream ExcelFile = new FileInputStream(file);
+	// // Access the required test data sheet
+	// workbook = new XSSFWorkbook(ExcelFile);
+	// // 得到工作表
+	// sheet = workbook.getSheet(sheetName);
+	// // 得到总行数
+	// int rowNum = sheet.getLastRowNum();
+	// List<String[]> results = new ArrayList<String[]>();
+	// for (int i = 1; i <= rowNum; i++) {
+	// // 当前行
+	// XSSFRow row = sheet.getRow(i);
+	// int colNum = row.getLastCellNum();
+	// String[] data = new String[colNum];
+	// // 当前行所有列
+	// for (int j = 0; j < colNum; j++) {
+	// try {
+	// data[j] = getCellValue(row.getCell(j));
+	// } catch (NullPointerException e) { // 如果单元格为空的时候，则用这个来处理
+	// data[j] = "";
+	// }
+	// }
+	// // 把data[]数组的数据存在list<[]>中
+	// results.add(data);
+	// }
+	//
+	// String[][] returnArray = new String[results.size()][rowNum];
+	// for (int i = 0; i < returnArray.length; i++) {
+	// returnArray[i] = (String[]) results.get(i);
+	// }
+	// return returnArray;
+	// } catch (Exception e) {
+	// return null;
+	// }
+	// }
+	//
+	// /**
+	// * 对Excel的各个单元格的格式进行判断并转换
+	// */
+	// public static String getCellValue(XSSFCell xssfCell) {
+	// String cellValue = "";
+	// DecimalFormat df = new DecimalFormat("#");
+	// switch (xssfCell.getCellType()) {
+	// case HSSFCell.CELL_TYPE_STRING:
+	// cellValue = xssfCell.getRichStringCellValue().getString().trim();
+	// break;
+	// case HSSFCell.CELL_TYPE_NUMERIC:
+	// cellValue = df.format(xssfCell.getNumericCellValue()).toString();
+	// break;
+	// case HSSFCell.CELL_TYPE_BOOLEAN:
+	// cellValue = String.valueOf(xssfCell.getBooleanCellValue()).trim();
+	// break;
+	// case HSSFCell.CELL_TYPE_FORMULA:
+	// cellValue = xssfCell.getCellFormula();
+	// break;
+	// default:
+	// cellValue = "";
+	// }
+	// return cellValue;
+	// }
+
 }
