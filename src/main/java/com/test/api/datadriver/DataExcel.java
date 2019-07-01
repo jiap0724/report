@@ -13,13 +13,13 @@ import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.Assert;
 
 import com.test.api.util.AnalysisJson;
 import com.test.api.util.CompareMap;
 import com.test.api.util.DataToMap;
 import com.test.api.util.HttpRequest;
 
-import junit.framework.Assert;
 import net.sf.json.JSONObject;
 
 /**
