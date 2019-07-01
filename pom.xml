@@ -58,7 +58,7 @@
 <dependency>
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
-    <version>6.14.3</version>
+    <version>6.14.2</version>
     <scope>test</scope>
 </dependency>
 
@@ -144,6 +144,19 @@
     <version>2.4</version>
     <classifier>jdk15</classifier>
 </dependency>
+<!-- log4j -->
+<!-- <dependency>
+<groupId>com.aliyun.openservices</groupId>
+<artifactId>loghub-client-lib</artifactId>
+<exclusions>
+<exclusion>
+ <groupId>log4j</groupId>
+ <artifactId>log4j</artifactId>
+</exclusion>
+</exclusions>
+<version>0.6.15</version>
+</dependency> -->
+
 
   </dependencies>
   
